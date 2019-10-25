@@ -10,6 +10,12 @@ const Wrap = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+
+    & {
+        a {
+            color: darkcyan;
+        }
+    }
 `;
 
 const third = () => (
