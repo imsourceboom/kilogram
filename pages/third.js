@@ -30,7 +30,7 @@ const third = () => (
                 <a style={{ marginRight: '30px' }}>Go to Home!</a>
             </Link>
             <Link href="/second">
-                <a>Go to Second!</a>
+                <a>Go to Second!!!!!</a>
             </Link>
         </Wrap>
     </>
