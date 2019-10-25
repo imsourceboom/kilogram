@@ -14,6 +14,7 @@ const Wrap = styled.div`
     & {
         a {
             color: darkcyan;
+            font-size: 30px;
         }
     }
 `;
