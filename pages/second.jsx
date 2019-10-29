@@ -6,6 +6,11 @@ import styled from 'styled-components';
 const Button = styled.a`
     color: red;
     font-size: 30px;
+    margin-right: 30px;
+
+    &:hover {
+        cursor: pointer;
+    }
 `;
 
 const Wrap = styled.div`
@@ -19,14 +24,6 @@ const Wrap = styled.div`
     & {
         h1 {
             margin-right: 50px;
-        }
-
-        ${Button} {
-            margin-right: 30px;
-
-            &:hover {
-                cursor: pointer;
-            }
         }
     }
 `;

@@ -6,7 +6,7 @@ import Link from 'next/link';
 const Home = () => (
     <>
         <Head>
-            <title>Home!</title>
+            <title>Home!!!!</title>
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
