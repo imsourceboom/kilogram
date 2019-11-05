@@ -1,33 +1,41 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import Link from 'next/link';
 import { Nav, Wrap } from './styled';
-import { userAction, phoneAction, briefcaseAction, settingsAction } from '../../../../reducers/nav';
+import {
+  userArticleAction,
+  phoneArticleAction,
+  kiloArticleAction,
+  settingsArticleAction,
+} from '../../../../reducers/nav';
 
-const icons = ['user', 'phone', 'briefcase', 'settings'];
+const icons = ['user', 'phone', 'kilo', 'settings'];
 
 const Menu = () => {
   const dispatch = useDispatch();
 
   const changeArticle = useCallback((e) => {
     if (e.currentTarget.id === 'user') {
-      dispatch(userAction);
+      dispatch(userArticleAction);
     }
     if (e.currentTarget.id === 'phone') {
-      dispatch(phoneAction);
+      dispatch(phoneArticleAction);
     }
-    if (e.currentTarget.id === 'briefcase') {
-      dispatch(briefcaseAction);
+    if (e.currentTarget.id === 'kilo') {
+      dispatch(kiloArticleAction);
     }
     if (e.currentTarget.id === 'settings') {
-      dispatch(settingsAction);
+      dispatch(settingsArticleAction);
     }
-  });
+  }, []);
 
   return (
     <Wrap>
       {icons.map((v, i) => (
         <li id={v} key={i} onClick={changeArticle}>
-          <img src={`${v}.svg`} alt={v} />
+          <Link href={v}>
+            <img src={`${v}.svg`} alt={v} />
+          </Link>
         </li>
       ))}
     </Wrap>

@@ -8,7 +8,7 @@ export const Wrap = styled.section`
   flex-direction: column;
   border-right: 1px solid rgba(255, 255, 255, 0.1);
 
-  @media (min-width: 768px) {
-    min-width: 305px;
+  @media (min-width: 768px) and (min-height: 450px) {
+    min-width: 301px;
   }
 `;

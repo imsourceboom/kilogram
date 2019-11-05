@@ -1,27 +1,32 @@
 export const initialState = {
   userArticle: false,
   phoneArticle: false,
-  briefcaseArticle: true,
+  kiloArticle: true,
   settingsArticle: false,
+  // roomList: [],
 };
 
 export const USER_ARTICLE = 'USER_ARTICLE';
 export const PHONE_ARTICLE = 'PHONE_ARTICLE';
-export const BRIEFCASE_ARTICLE = 'BRIEFCASE_ARTICLE';
+export const KILO_ARTICLE = 'KILO_ARTICLE';
 export const SETTINGS_ARTICLE = 'SETTINGS_ARTICLE';
+// export const ROOM_LIST = 'ROOM_LIST';
 
-export const userAction = {
+export const userArticleAction = {
   type: USER_ARTICLE,
 };
-export const phoneAction = {
+export const phoneArticleAction = {
   type: PHONE_ARTICLE,
 };
-export const briefcaseAction = {
-  type: BRIEFCASE_ARTICLE,
+export const kiloArticleAction = {
+  type: KILO_ARTICLE,
 };
-export const settingsAction = {
+export const settingsArticleAction = {
   type: SETTINGS_ARTICLE,
 };
+// export const roomListAction = {
+//   type: ROOM_LIST,
+// };
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -30,7 +35,7 @@ export default (state = initialState, action) => {
         ...state,
         userArticle: true,
         phoneArticle: false,
-        briefcaseArticle: false,
+        kiloArticle: false,
         settingsArticle: false,
       };
 
@@ -39,16 +44,16 @@ export default (state = initialState, action) => {
         ...state,
         userArticle: false,
         phoneArticle: true,
-        briefcaseArticle: false,
+        kiloArticle: false,
         settingsArticle: false,
       };
 
-    case BRIEFCASE_ARTICLE:
+    case KILO_ARTICLE:
       return {
         ...state,
         userArticle: false,
         phoneArticle: false,
-        briefcaseArticle: true,
+        kiloArticle: true,
         settingsArticle: false,
       };
 
@@ -57,9 +62,14 @@ export default (state = initialState, action) => {
         ...state,
         userArticle: false,
         phoneArticle: false,
-        briefcaseArticle: false,
+        kiloArticle: false,
         settingsArticle: true,
       };
+
+      // case ROOM_LIST:
+      //   return {
+      //     ...state,
+      //   };
 
     default:
       return {

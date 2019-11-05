@@ -1,5 +1,6 @@
 import Head from 'next/head';
-// import Nav from '../components/nav';
+// import axios from 'axios';
+import fetch from 'isomorphic-unfetch';
 import Link from 'next/link';
 import styled from 'styled-components';
 
@@ -12,14 +13,12 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const Home = () => (
+const Index = (props) => (
   <>
     <Head>
       <title>Home!!!!</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
-
-    {/* <Nav /> */}
 
     <div>
       <Title>Home</Title>
@@ -31,8 +30,20 @@ const Home = () => (
           <a>Go to third page</a>
         </Link>
       </div>
+      <h2>{props.shows}</h2>
     </div>
   </>
 );
 
-export default Home;
+Index.getInitialProps = async () => {
+  const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+  const data = await res.json();
+
+  console.log(`Show data fetched. Count: ${data.length}`);
+
+  return {
+    shows: data.map((entry) => entry.show),
+  };
+};
+
+export default Index;
