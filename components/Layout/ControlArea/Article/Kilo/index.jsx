@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 // import Link from 'next/link';
 import { Wrap } from './styled';
 import getApi from '../../../../../functions/getApi.js';
@@ -17,7 +17,7 @@ export default () => {
       });
   }, []);
 
-  const targetRef = (node) => {
+  const targetRef = useCallback((node) => {
     if (node !== null) {
       const updateSize = () => {
         setDimension(node.getBoundingClientRect().width);
@@ -26,7 +26,7 @@ export default () => {
       updateSize();
       window.removeEventListener('resize', updateSize);
     }
-  };
+  });
 
   return (
     <Wrap>

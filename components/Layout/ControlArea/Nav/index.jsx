@@ -34,7 +34,9 @@ const Menu = () => {
       {icons.map((v, i) => (
         <li id={v} key={i} onClick={changeArticle}>
           <Link href={v}>
-            <img src={`${v}.svg`} alt={v} />
+            <a>
+              <img src={`${v}.svg`} alt={v} />
+            </a>
           </Link>
         </li>
       ))}

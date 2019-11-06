@@ -6,7 +6,6 @@ export const Wrap = styled.ul`
     min-height: 70px;
     max-height: 70px;
     overflow: hidden;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     @media (min-width: 768px) and (min-height: 450px) {
       max-width: 301px;
@@ -29,6 +28,7 @@ export const Wrap = styled.ul`
     article {
       flex: 1;
       padding: 0.4rem 0.6rem 0.4rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
       hgroup {
         display: flex;
