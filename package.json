@@ -1,6 +1,7 @@
 {
     "name": "kilogram",
     "version": "0.1.0",
+    "description": "kilogram front",
     "private": true,
     "scripts": {
         "dev": "next",
