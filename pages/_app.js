@@ -1,12 +1,16 @@
+/* eslint-disable react/jsx-filename-extension */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable react/react-in-jsx-scope */
 // import Helmet from 'react-helmet'
 import withRedux from 'next-redux-wrapper';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
+import createSagaMiddleware from 'redux-saga';
+
 import { theme, GlobalStyle } from '../styles';
 import Layout from '../components/Layout';
 import reducer from '../reducers';
-import sagaMiddleware from '../sagas/middleware';
 import rootSaga from '../sagas';
 
 const RootApp = ({ Component, pageProps, store }) => (
@@ -20,7 +24,8 @@ const RootApp = ({ Component, pageProps, store }) => (
   </ThemeProvider>
 );
 
-export default withRedux((initialState, options) => {
+const configureStore = (initialState, options) => {
+  const sagaMiddleware = createSagaMiddleware();
   const middlewares = [sagaMiddleware];
   const enhancer = process.env.NODE_ENV === 'production'
     ? compose(applyMiddleware(...middlewares))
@@ -33,4 +38,6 @@ export default withRedux((initialState, options) => {
   const store = createStore(reducer, initialState, enhancer);
   sagaMiddleware.run(rootSaga);
   return store;
-})(RootApp);
+};
+
+export default withRedux(configureStore)(RootApp);

@@ -1,3 +1,6 @@
+/* eslint-disable import/extensions */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable no-console */
 import { useState, useEffect, useCallback } from 'react';
 // import Link from 'next/link';
 import { Wrap } from './styled';
@@ -30,9 +33,8 @@ export default () => {
 
   return (
     <Wrap>
-      {roomList.map((r) => (
+      {roomList.map((r, i) => (
         <li key={r.id} ref={targetRef}>
-          {/* <Link href=""> */}
           <figure>
             <img src={r.thumbnailUrl} alt="" />
           </figure>
@@ -46,7 +48,6 @@ export default () => {
               <span />
             </div>
           </article>
-          {/* </Link> */}
         </li>
       ))}
     </Wrap>
